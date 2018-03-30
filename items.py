@@ -1,5 +1,6 @@
 import yaml
 import random
+import re
 
 
 def generate_items(type_name, property1, property2, quantity):
@@ -74,6 +75,21 @@ def generate_item(item_type, property1, property2):
 
     name += " " + item if name != "" else item
 
+    if item_type != "Wonderous item":
+        slot = item_type
+    elif re.search('Helm|Cap|Hat|Circlet|Mask|Tiara', name, re.IGNORECASE):
+        slot = "Head"
+    elif re.search('Gauntlets|Bracers', name, re.IGNORECASE):
+        slot = "Wrist"
+    elif re.search('Boots', name, re.IGNORECASE):
+        slot = "Feet"
+    elif re.search('Collar|Necklace|Amulet|Pendant|Medallion', name, re.IGNORECASE):
+        slot = "Neck"
+    else:
+        expression = re.compile('(Belt|Ring|Cloak|Gloves)')
+        match = expression.search(name)
+        slot = match.group(1) if match else ""
+
     if property2 and property2 == "weak":
         prop = random.choice(props)
         name += " " + prop["prop2"]
@@ -84,7 +100,7 @@ def generate_item(item_type, property1, property2):
             "type": typ,
             "rarity": "Uncommon",
             "attunement": "TRUE",
-            "slot": item_type,
+            "slot": slot,
             "value": "",
             "cursed": "",
             "effect": effect
