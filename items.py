@@ -83,7 +83,7 @@ def generate_item(item_type, property1, property2):
         slot = "Wrist"
     elif re.search('Boots', name, re.IGNORECASE):
         slot = "Feet"
-    elif re.search('Collar|Necklace|Amulet|Pendant|Medallion', name, re.IGNORECASE):
+    elif re.search('Collar|Amulet|Pendant|Medallion', name, re.IGNORECASE):
         slot = "Neck"
     else:
         expression = re.compile('(Belt|Ring|Cloak|Gloves)')
