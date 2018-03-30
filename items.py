@@ -1,120 +1,63 @@
 import requests
+import yaml
 from bs4 import BeautifulSoup
 import re
+import random
+
+import pprint
 
 
-def create_request_objects(item, property1, property2, quantity):
-
-    max_length = max(item.__len__() if type(item) is list else 1,
-                     property1.__len__() if type(property1) is list else 1,
-                     property2.__len__() if type(property2) is list else 1,
-                     quantity.__len__() if type(quantity) is list else 1)
-
-    if type(item) is list:
-        if not item.__len__() == max_length:
-            raise Exception("item is a list but is not the same length as the largest")
-    else:
-        item = [item] * max_length
-
-    if type(property1) is list:
-        if not property1.__len__() == max_length:
-            raise Exception("property1 is a list but is not the same length as the largest")
-    else:
-        property1 = [property1] * max_length
-
-    if type(property2) is list:
-        if not property2.__len__() == max_length:
-            raise Exception("property2 is a list but is not the same length as the largest")
-    else:
-        property2 = [property2] * max_length
-
-    if type(quantity) is list:
-        if not quantity.__len__() == max_length:
-            raise Exception("quantity is a list but is not the same length as the largest")
-    else:
-        quantity = [quantity] * max_length
-
-    return [dict(zip(["item", "prop1", "prop2", "quantity"], x))
-            for x in list(zip(item, property1, property2, quantity))]
+def generate_items(type_name, property1, property2, quantity):
+    return [generate_item(type_name, property1, property2) for _ in range(quantity)]
 
 
-def get_items(item, property1, property2, quantity):
-    url = "http://www.lordbyng.net/inspiration/results.php"
+def generate_item(item_type, property1, property2):
+    # read in the options for generation
+    options = yaml.load(open("items.yaml"))
+    properties = yaml.load(open("properties.yaml"))
 
-    # create lists of requests to make
+    ops = options[item_type]
 
-    reqs = create_request_objects(item, property1, property2, quantity)
+    if not ops:
+        return []
 
-    plain_text = ""
+    props = properties[item_type]
 
-    for req in reqs:
-        html_response = requests.post(url, req)
-        plain_text += html_response.text
+    if not props:
+        return []
 
-    # when using two properties, there is not a line break like there is with one, which screws up parsing
-    soup = BeautifulSoup(plain_text.replace("</p><p>", "</p>\n<p>"))
+    name = ""
+    effect = ""
 
-    items = []
+    if property1 and property1 == "weak":
+        prop = random.choice(props)
+        name = prop["prop1"]
+        effect += prop["effect"].strip()
 
-    for item_object in filter(lambda x: not re.search("DMG", x.text), soup.findAll('div', {"class": 'weapon'})):
-        # get nonempty lines
-        lines = list(filter(None, item_object.text.splitlines()))
+    item_ops = random.choice(ops)
 
-        # get name
-        name = re.sub("\d+: ", "", lines[0])
+    item = random.choice(item_ops) if type(item_ops) == list else item_ops
 
-        # get type and rarity
-        try:
-            type_name, rarity = lines[1].split(",")[0:2] if lines[1].split(",").__len__() > 1\
-                else (lines[1].split(",")[0], "common")
-        except Exception as ex:
-            print(ex)
-            print(lines[1].split(","))
-            print(item_object.text)
-            continue
+    typ = "{}{}".format(item_type, "({})".format(item_ops[0]) if type(item_ops) == list else "")
 
-        # there will be a space after the comma, at the beginning of rarity, as well as a (requires Attunement) after it
-        # so just extract rarity
-        rarity, attunement = rarity.split(" ")[1::2] if rarity is not "common" else (rarity, "")
-        attunement = "TRUE" if re.search("Attunement", attunement, re.IGNORECASE) else ""
 
-        # get effect(s)
-        # replace with break so it works in html
-        effect = "<br>".join(lines[2:])
+    name += " " + item
 
-        # determine slot
-        if re.match("Armor", type_name):
-            slot = "Armor"
-        elif re.match("Weapon", type_name):
-            slot = "Weapon"
-        else:
-            if re.search('Helm|Cap|Hat|Circlet|Mask|Tiara', name, re.IGNORECASE):
-                slot = "Head"
-            elif re.search('Gauntlets|Bracers', name, re.IGNORECASE):
-                slot = "Wrist"
-            elif re.search('Boots', name, re.IGNORECASE):
-                slot = "Feet"
-            elif re.search('Collar|Necklace|Amulet|Pendant|Medallion', name, re.IGNORECASE):
-                slot = "Neck"
-            else:
-                expression = re.compile('(Belt|Ring|Cloak|Gloves)')
-                match = expression.search(name)
-                slot = match.group(1) if match else ""
+    if property2 and property2 == "weak":
+        prop = random.choice(props)
+        name += " " + prop["prop2"]
+        effect += "{}{}".format("\n" if effect != "" else "", prop["effect"].strip())
 
-        items.append({
+    return {
             "name": name,
-            "type": type_name,
-            "rarity": rarity,
-            "attunement": attunement,
-            "slot": slot,
+            "type": typ,
+            "rarity": "Uncommon",
+            "attunement": "TRUE",
+            "slot": item_type,
             "value": "",
             "cursed": "",
             "effect": effect
-        })
-        if not slot:
-            print(name, type_name, rarity, "TRUE", slot, "", "", effect, sep='\t')
-
-    return items
+        }
 
 
 def format_item_as_table_string(item):
@@ -226,5 +169,7 @@ def make_cards(items):
     return html_string + "\n</div>\n<div class='column'>{}</div>\n{}</div>".format(right_items, bottom_items)
 
 
-with open("items.html", "w") as html_page:
-    html_page.write(make_cards(get_items(["trinkets", "armor"], ["weak", "none"], ["none", "weak"], 1)))
+# with open("items.html", "w") as html_page:
+#     html_page.write(make_cards(get_items(["trinkets", "armor"], ["weak", "none"], ["none", "weak"], 1)))
+
+print(make_cards(generate_items("Wonderous item", "weak", "weak", 10)))
