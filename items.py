@@ -1,20 +1,52 @@
-import requests
 import yaml
-from bs4 import BeautifulSoup
-import re
 import random
-
-import pprint
 
 
 def generate_items(type_name, property1, property2, quantity):
-    return [generate_item(type_name, property1, property2) for _ in range(quantity)]
+
+    max_length = max(type_name.__len__() if type(type_name) is list else 1,
+                     property1.__len__() if type(property1) is list else 1,
+                     property2.__len__() if type(property2) is list else 1,
+                     quantity.__len__() if type(quantity) is list else 1)
+
+    if type(type_name) is list:
+        if not type_name.__len__() == max_length:
+            raise Exception("item is a list but is not the same length as the largest")
+    else:
+        type_name = [type_name] * max_length
+
+    if type(property1) is list:
+        if not property1.__len__() == max_length:
+            raise Exception("property1 is a list but is not the same length as the largest")
+    else:
+        property1 = [property1] * max_length
+
+    if type(property2) is list:
+        if not property2.__len__() == max_length:
+            raise Exception("property2 is a list but is not the same length as the largest")
+    else:
+        property2 = [property2] * max_length
+
+    if type(quantity) is list:
+        if not quantity.__len__() == max_length:
+            raise Exception("quantity is a list but is not the same length as the largest")
+    else:
+        quantity = [quantity] * max_length
+
+    items = []
+
+    for typ, prop1, prop2, quant in zip(type_name, property1, property2, quantity):
+        items += [generate_item(typ, prop1, prop2) for _ in range(quant)]
+
+    return items
 
 
 def generate_item(item_type, property1, property2):
     # read in the options for generation
     options = yaml.load(open("items.yaml"))
     properties = yaml.load(open("properties.yaml"))
+
+    item_type = "Wonderous item" if item_type == "trinket" else item_type.capitalize()
 
     ops = options[item_type]
 
@@ -40,8 +72,7 @@ def generate_item(item_type, property1, property2):
 
     typ = "{}{}".format(item_type, "({})".format(item_ops[0]) if type(item_ops) == list else "")
 
-
-    name += " " + item
+    name += " " + item if name != "" else item
 
     if property2 and property2 == "weak":
         prop = random.choice(props)
@@ -170,6 +201,6 @@ def make_cards(items):
 
 
 # with open("items.html", "w") as html_page:
-#     html_page.write(make_cards(get_items(["trinkets", "armor"], ["weak", "none"], ["none", "weak"], 1)))
+#     html_page.write(make_cards(generate_items(["wonderous item", "armor"], ["weak", None], [None, "weak"], 1)))
 
-print(make_cards(generate_items("Wonderous item", "weak", "weak", 10)))
+print(generate_items(["wonderous item", "armor"], ["weak", None], [None, "weak"], 1))
