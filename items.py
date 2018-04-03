@@ -2,6 +2,9 @@ import yaml
 import random
 import re
 
+options = []
+properties = []
+
 
 def generate_items(type_name, property1, property2, quantity):
 
@@ -34,6 +37,12 @@ def generate_items(type_name, property1, property2, quantity):
     else:
         quantity = [quantity] * max_length
 
+    global options
+    global properties
+    # read in the options for generation
+    options = yaml.load(open("items.yaml"))
+    properties = yaml.load(open("properties.yaml"))
+
     items = []
 
     for typ, prop1, prop2, quant in zip(type_name, property1, property2, quantity):
@@ -43,10 +52,6 @@ def generate_items(type_name, property1, property2, quantity):
 
 
 def generate_item(item_type, property1, property2):
-    # read in the options for generation
-    options = yaml.load(open("items.yaml"))
-    properties = yaml.load(open("properties.yaml"))
-
     item_type = "Wonderous item" if item_type == "trinket" else item_type.capitalize()
 
     ops = options[item_type]
@@ -64,7 +69,7 @@ def generate_item(item_type, property1, property2):
 
     if property1 and property1 == "weak":
         prop = random.choice(props)
-        name = prop["prop1"]
+        name = str(prop["prop1"])
         effect += prop["effect"].strip()
 
     item_ops = random.choice(ops)
@@ -92,7 +97,7 @@ def generate_item(item_type, property1, property2):
 
     if property2 and property2 == "weak":
         prop = random.choice(props)
-        name += " " + prop["prop2"]
+        name += " " + str(prop["prop2"])
         effect += "{}{}".format("\n" if effect != "" else "", prop["effect"].strip())
 
     return {
@@ -219,4 +224,5 @@ def make_cards(items):
 # with open("items.html", "w") as html_page:
 #     html_page.write(make_cards(generate_items(["wonderous item", "armor"], ["weak", None], [None, "weak"], 1)))
 
-print(generate_items(["wonderous item", "armor"], ["weak", None], [None, "weak"], 1))
+
+print(generate_items(["wonderous item", "armor", "trinket"], ["weak", None, "weak"], [None, "weak", "weak"], 1))
