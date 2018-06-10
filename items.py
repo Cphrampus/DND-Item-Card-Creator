@@ -1,20 +1,23 @@
-import requests
-from bs4 import BeautifulSoup
+import yaml
+import random
 import re
 
+options = []
+properties = []
 
-def create_request_objects(item, property1, property2, quantity):
 
-    max_length = max(item.__len__() if type(item) is list else 1,
+def generate_items(type_name, property1, property2, quantity):
+
+    max_length = max(type_name.__len__() if type(type_name) is list else 1,
                      property1.__len__() if type(property1) is list else 1,
                      property2.__len__() if type(property2) is list else 1,
                      quantity.__len__() if type(quantity) is list else 1)
 
-    if type(item) is list:
-        if not item.__len__() == max_length:
+    if type(type_name) is list:
+        if not type_name.__len__() == max_length:
             raise Exception("item is a list but is not the same length as the largest")
     else:
-        item = [item] * max_length
+        type_name = [type_name] * max_length
 
     if type(property1) is list:
         if not property1.__len__() == max_length:
@@ -34,87 +37,79 @@ def create_request_objects(item, property1, property2, quantity):
     else:
         quantity = [quantity] * max_length
 
-    return [dict(zip(["item", "prop1", "prop2", "quantity"], x))
-            for x in list(zip(item, property1, property2, quantity))]
-
-
-def get_items(item, property1, property2, quantity):
-    url = "http://www.lordbyng.net/inspiration/results.php"
-
-    # create lists of requests to make
-
-    reqs = create_request_objects(item, property1, property2, quantity)
-
-    plain_text = ""
-
-    for req in reqs:
-        html_response = requests.post(url, req)
-        plain_text += html_response.text
-
-    # when using two properties, there is not a line break like there is with one, which screws up parsing
-    soup = BeautifulSoup(plain_text.replace("</p><p>", "</p>\n<p>"))
+    global options
+    global properties
+    # read in the options for generation
+    options = yaml.load(open("items.yaml"))
+    properties = yaml.load(open("properties.yaml"))
 
     items = []
 
-    for item_object in filter(lambda x: not re.search("DMG", x.text), soup.findAll('div', {"class": 'weapon'})):
-        # get nonempty lines
-        lines = list(filter(None, item_object.text.splitlines()))
+    for typ, prop1, prop2, quant in zip(type_name, property1, property2, quantity):
+        items += [generate_item(typ, prop1, prop2) for _ in range(quant)]
 
-        # get name
-        name = re.sub("\d+: ", "", lines[0])
+    return items
 
-        # get type and rarity
-        try:
-            type_name, rarity = lines[1].split(",")[0:2] if lines[1].split(",").__len__() > 1\
-                else (lines[1].split(",")[0], "common")
-        except Exception as ex:
-            print(ex)
-            print(lines[1].split(","))
-            print(item_object.text)
-            continue
 
-        # there will be a space after the comma, at the beginning of rarity, as well as a (requires Attunement) after it
-        # so just extract rarity
-        rarity, attunement = rarity.split(" ")[1::2] if rarity is not "common" else (rarity, "")
-        attunement = "TRUE" if re.search("Attunement", attunement, re.IGNORECASE) else ""
+def generate_item(item_type, property1, property2):
+    item_type = "Wonderous item" if item_type == "trinket" else item_type.capitalize()
 
-        # get effect(s)
-        # replace with break so it works in html
-        effect = "<br>".join(lines[2:])
+    ops = options[item_type]
 
-        # determine slot
-        if re.match("Armor", type_name):
-            slot = "Armor"
-        elif re.match("Weapon", type_name):
-            slot = "Weapon"
-        else:
-            if re.search('Helm|Cap|Hat|Circlet|Mask|Tiara', name, re.IGNORECASE):
-                slot = "Head"
-            elif re.search('Gauntlets|Bracers', name, re.IGNORECASE):
-                slot = "Wrist"
-            elif re.search('Boots', name, re.IGNORECASE):
-                slot = "Feet"
-            elif re.search('Collar|Necklace|Amulet|Pendant|Medallion', name, re.IGNORECASE):
-                slot = "Neck"
-            else:
-                expression = re.compile('(Belt|Ring|Cloak|Gloves)')
-                match = expression.search(name)
-                slot = match.group(1) if match else ""
+    if not ops:
+        return []
 
-        items.append({
+    props = properties[item_type]
+
+    if not props:
+        return []
+
+    name = ""
+    effect = ""
+
+    if property1 and property1 == "weak":
+        prop = random.choice(props)
+        name = str(prop["prop1"])
+        effect += prop["effect"].strip()
+
+    item_ops = random.choice(ops)
+
+    item = random.choice(item_ops) if type(item_ops) == list else item_ops
+
+    typ = "{}{}".format(item_type, "({})".format(item_ops[0]) if type(item_ops) == list else "")
+
+    name += " " + item if name != "" else item
+
+    if item_type != "Wonderous item":
+        slot = item_type
+    elif re.search('Helm|Cap|Hat|Circlet|Mask|Tiara', name, re.IGNORECASE):
+        slot = "Head"
+    elif re.search('Gauntlets|Bracers', name, re.IGNORECASE):
+        slot = "Wrist"
+    elif re.search('Boots', name, re.IGNORECASE):
+        slot = "Feet"
+    elif re.search('Collar|Amulet|Pendant|Medallion', name, re.IGNORECASE):
+        slot = "Neck"
+    else:
+        expression = re.compile('(Belt|Ring|Cloak|Gloves)')
+        match = expression.search(name)
+        slot = match.group(1) if match else ""
+
+    if property2 and property2 == "weak":
+        prop = random.choice(props)
+        name += " " + str(prop["prop2"])
+        effect += "{}{}".format("\n" if effect != "" else "", prop["effect"].strip())
+
+    return {
             "name": name,
-            "type": type_name,
-            "rarity": rarity,
-            "attunement": attunement,
+            "type": typ,
+            "rarity": "Uncommon",
+            "attunement": "TRUE",
             "slot": slot,
             "value": "",
             "cursed": "",
             "effect": effect
-        })
-        if not slot:
-            print(name, type_name, rarity, "TRUE", slot, "", "", effect, sep='\t')
-
-    return items
+        }
 
 
 def format_item_as_table_string(item):
@@ -226,5 +221,8 @@ def make_cards(items):
     return html_string + "\n</div>\n<div class='column'>{}</div>\n{}</div>".format(right_items, bottom_items)
 
 
-with open("items.html", "w") as html_page:
-    html_page.write(make_cards(get_items(["trinkets", "armor"], ["weak", "none"], ["none", "weak"], 1)))
+# with open("items.html", "w") as html_page:
+#     html_page.write(make_cards(generate_items(["wonderous item", "armor"], ["weak", None], [None, "weak"], 1)))
+
+
+print(generate_items(["wonderous item", "armor", "trinket"], ["weak", None, "weak"], [None, "weak", "weak"], 1))
