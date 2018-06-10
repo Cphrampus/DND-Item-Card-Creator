@@ -43,7 +43,7 @@ Weapon:
     prop1: Autumn
     prop2: of Falling Leaves
     effect: > 
-      The weapon contains a reservoir of natural magic that can a sustain a cascade of falling leaves for up to 30 seconds. The bearer may use an action to plant this weapon in the ground and release this magic. While planted and undepleted, creatures within 10 feet of this weapon have half cover. A long rest restores 1d6 sconds of energy to the weapon's resevoir.
+      The weapon contains a reservoir of natural magic that can a sustain a cascade of falling leaves for up to 30 seconds. The bearer may use an action to plant this weapon in the ground and release this magic. While planted and undepleted, creatures within 10 feet of this weapon have half cover. A long rest restores 1d6 seconds of energy to the weapon's reservoir.
   -
     prop1: Barbed
     prop2: of Barbs
