@@ -1,0 +1,635 @@
+-
+  prop1: Abyssal
+  prop2: of the Abyss
+  effect: >
+    When on the plane of the Abyss, the bearer has advantage on saving throws against Abyssal Corruption. (DMG p. 62)
+-
+  prop1: Acolyte's
+  prop2: of the Acolyte
+  effect: >
+    The bearer gains a +1 bonus to Wisdom (Religion) checks.
+-
+  prop1: Adamantine
+  prop2: of Adamantine
+  effect: >
+    The item is indestructible.
+-
+  prop1: Adroit
+  prop2: of Intellect
+  effect: >
+    The bearer gains +1 bonus to Intelligence saving throws.
+-
+  prop1: Alarming
+  prop2: of Alarms
+  effect: >
+    Contains 1d4 unreplenishable charges of the <i>Alarm</i> spell (1st level).
+-
+  prop1: Arborean
+  prop2: of Arborea
+  effect: >
+    When on the plane of Arborea, the bearer has advantage on saving throws against the effects of Intense Yearning. (DMG p. 61)
+-
+  prop1: Arcadian
+  prop2: of Arcadia
+  effect: >
+    When on the plane of Arcardia, the bearer is unaffected by Planar Vitality (DMG p. 67)
+-
+  prop1: Arctic
+  prop2: of the North
+  effect: >
+    The bearer suffers no harm in temperature as cold as -20 degrees Fahrenheit.
+-
+  prop1: Arresting
+  prop2: of Safety
+  effect: >
+    Once per day, the bearer may use their reaction to reduce fall damage by 1d6 until the end of turn.
+-
+  prop1: Assassin's
+  prop2: of the Assassin
+  effect: >
+    The bearer may add their proficiency bonus to damage rolls dealt during surprise rounds.
+-
+  prop1: Astral
+  prop2: of the Astral Sea
+  effect: >
+    When travelling the Astral Sea, it takes half the number of hours to locate a Color Pool to a specific plane. You have advantage on saving throws vs. the effects of Psychic Wind (DMG p. 47-48)
+-
+  prop1: Barbarian's
+  prop2: of the Barbarian
+  effect: >
+    The bearer gains a +1 bonus to Strength (Athletics) checks.
+-
+  prop1: Bard's
+  prop2: of the Bard
+  effect: >
+    The bearer gains +1 to Charisma (Performance) checks.
+-
+  prop1: Beastial
+  prop2: of the Beastlands
+  effect: >
+    When on the plane of The Beastlands, the bearer has advantage on saving throws vs. Beast Transformation (DMG p. 60)
+-
+  prop1: Beastspeaker's
+  prop2: of Beastspeakers
+  effect: >
+    Contains 1d4 unreplenishable charges of the <i>Speak with Animals</i> spell (1st level).
+-
+  prop1: Benedictine
+  prop2: of Benediction
+  effect: >
+    Contains 1d4 unreplenishable charges of the <i>Healing Word</i> spell (1st level).
+-
+  prop1: Blasted
+  prop2: of Blasting
+  effect: >
+    Contains 1d4 unreplenishable charges of the <i>Fire Bolt</i> spell (0th level).
+-
+  prop1: Blessed
+  prop2: of Blessings
+  effect: >
+    Whenever bearer of this item receives divine healing, they gain an additional 1d4 hit points.
+-
+  prop1: Bold
+  prop2: of Boldness
+  effect: >
+    Contains 1d4 unreplenishable charges of the <i>Heroism</i> spell (1st level).
+-
+  prop1: Bountiful
+  prop2: of Bounty
+  effect: >
+    Contains 1d4 unreplenishable charges of the <i>Goodberry</i> spell (1st level).
+-
+  prop1: Burglar's
+  prop2: of the Burglar
+  effect: >
+    The bearer gains +1 to Dexterity (Sleight of Hand) checks.
+-
+  prop1: Bytopian
+  prop2: of Bytopia
+  effect: >
+    When on the plane of Bytopia, the bearer has advantage on saving throws against Pervasive Goodwill. (DMG p. 59-60)
+-
+  prop1: Carcerian
+  prop2: of Carceri
+  effect: >
+    When on the plane of Carceri, the bearer knows the direction to the closest secret exit from this prison plane. (DMG p. 63)
+-
+  prop1: Cardinal
+  prop2: of the Lodestone
+  effect: >
+    The wielder can use an action to learn which way is north.
+-
+  prop1: Cartographic
+  prop2: of Cartography
+  effect: >
+    On its own volition, the item records a map of the environments that the bearer is exploring, and can magically project it for the bearer to see.
+-
+  prop1: Channelling
+  prop2: of Channelling
+  effect: >
+    Once per day, the bearer may ignore the Verbal and/or Somatic components of a spell they are casting.
+-
+  prop1: Chill
+  prop2: of Chills
+  effect: >
+    Contains 1d4 unreplenishable charges of the <i>Ray of Frost</i> spell (0th level).
+-
+  prop1: Clockwork
+  prop2: of Gears
+  effect: >
+    When on the plane of Mechanus, the bearer has advantage on saving throws against Imposing Order (DMG p. 66)
+-
+  prop1: Cloy
+  prop2: of Cloying
+  effect: >
+    The bearer may cast the <i>Friends</i> spell (0th level) once per day.
+-
+  prop1: Compassionate
+  prop2: of Compassion
+  effect: >
+    Contains 1d4 unreplenishable charges of the <i>Cure Wounds</i> spell (1st level).
+-
+  prop1: Concordant
+  prop2: of Concordance
+  effect: >
+    The bearer has advantage on saving throws vs. Psychic Dissonance when travelling the Outer Planes. (DMG p. 59)
+-
+  prop1: Conjurer's
+  prop2: of the Conjurer
+  effect: >
+    The bearer may cast the <i>Prestidigitation</i> spell (0th level) once per day.
+-
+  prop1: Corrosive
+  prop2: of Dissolving
+  effect: >
+    Contains 1d4 unreplenishable charges of the <i>Acid Splash</i> spell (0th level).
+-
+  prop1: Crawling
+  prop2: of Vermin
+  effect: >
+    The crawling things of the earth, such as insects, snakes, and vermin, are attracted to this item. When placed on the ground, such creatures will scurry toward the item like moths drawn to the flame.
+-
+  prop1: Dancer's
+  prop2: of the Dancer
+  effect: >
+    The bearer gains a +1 bonus to Dexterity (Acrobatics) checks.
+-
+  prop1: Defensive
+  prop2: of Defence
+  effect: >
+    Whenever the bearer takes a dodge action, they may move an additional 5 feet.
+-
+  prop1: Delver's
+  prop2: of the Delver
+  effect: >
+    While underground, the bearer of this item always knows the item's depth below the surface and the direction to the nearest staircase, ramp, or other path leading upward.
+-
+  prop1: Desperate
+  prop2: of Last Chances
+  effect: >
+    The bearer has advantage on perception checks when searching for items long lost in the the Swamp of Oblivion on the Plane of Earth. (DMG p. 54)
+-
+  prop1: Druid's
+  prop2: of the Druid
+  effect: >
+    The bearer gains a +1 bonus to Intelligence (Nature) checks.
+-
+  prop1: Drunkard's
+  prop2: of Taverns
+  effect: >
+    The bearer always knows the direction to the closest alcoholic beverage.
+-
+  prop1: Dynamic
+  prop2: of the Dynamo
+  effect: >
+    The bearer has +1 to Charisma saving throws.
+-
+  prop1: Eavesdropper's
+  prop2: of Eavesdropping
+  effect: >
+    As long as it is on the same plane, the bearer can hear through this item as if they were present.
+-
+  prop1: Elysian
+  prop2: of Elysium
+  effect: >
+    When on the plane of Elysium, the bearer has advantage on saving throws against the effects of Overwhelming Joy (DMG p. 60)
+-
+  prop1: Etherbound
+  prop2: of Ethereal Shores
+  effect: >
+    The bearer can see creatures in the Border Ethereal that overlap with their plane as clearly as if they were fully in the bearer's plane. Such creatures appear as apparitions or ghosts.
+-
+  prop1: Exalting
+  prop2: of Exaltation
+  effect: >
+    Contains 1d4 unreplenishable charges of the <i>Bless</i> spell (1st level).
+-
+  prop1: Expeditious
+  prop2: of Expedience
+  effect: >
+    Contains 1d4 unreplenishable charges of the <i>Expeditious Retreat</i> spell (1st level).
+-
+  prop1: False
+  prop2: of Falsehoods
+  effect: >
+    The bearer gains a +1 bonus to Charisma (Deception) checks.
+-
+  prop1: Fathoming
+  prop2: of Tongues
+  effect: >
+    Contains 1d4 unreplenishable charges of the <i>Comprehend Languages</i> spell (1st level).
+-
+  prop1: Favored
+  prop2: of the Favored
+  effect: >
+    Once per day, the bearer may roll a saving throw with advantage.
+-
+  prop1: Feathered
+  prop2: of Feathers
+  effect: >
+    Contains 1d4 unreplenishable charges of the <i>Feather Fall</i> spell (1st level).
+-
+  prop1: Feybound
+  prop2: of the Fey
+  effect: >
+    The bearer knows the general direction to the closest Fey Crossing within a 60 mile radius. (DMG p. 50)
+-
+  prop1: First
+  prop2: of Speed
+  effect: >
+    The bearer gain a +1 bonus to initiative rolls
+-
+  prop1: Forgiven
+  prop2: of Forgiveness
+  effect: >
+    When on the plane of Mount Celestia, the bearer of this item can receive the benefits of Blessed Beneficence regardless of their alignment.
+-
+  prop1: Fortune Teller's
+  prop2: of the Fortune Teller
+  effect: >
+    Every time you are hit by a monster, you glimpse a random image of its future or past.
+-
+  prop1: Friendly
+  prop2: of Friendship
+  effect: >
+    Contains 1d4 unreplenishable charges of the <i>Animal Friendship</i> spell (1st level).
+-
+  prop1: Gehennan
+  prop2: of Gehenna
+  effect: >
+    When on the plane of Gehenna, the bearer has advantage on saving throws against Cruel Hindrance. (DMG p. 63)
+-
+  prop1: Gracious
+  prop2: of Grace
+  effect: >
+    The bearer may cast the <i>Spare the Dying</i> spell (0th level) once per day.
+-
+  prop1: Grim
+  prop2: of Coercion
+  effect: >
+    The bearer gains a +1 bonus to Charisma (Intimidation) checks if the target can see this item.
+-
+  prop1: Hadean
+  prop2: of Hades
+  effect: >
+    When on the plane of Hades, the bearer has advantage on saving throws against Vile Transformation. (DMG p. 63)
+-
+  prop1: Harmonious
+  prop2: of Harmony
+  effect: >
+    Attuning to this item takes only 1 minute.
+-
+  prop1: Healing
+  prop2: of Healing
+  effect: >
+    This item contains 4 weak healing nodes. As an action, a character can use one node to heal 1d4 hit points at touch range. The item regains 1d4 charges at sunrise.
+-
+  prop1: Hellish
+  prop2: of the Nine Hells
+  effect: >
+    When in the Nine Hells, the bearer has advantage on saving throws against Pervasive Evil. (DMG p. 64)
+-
+  prop1: Heroic
+  prop2: of Heroes
+  effect: >
+    The bearer has advantage on saving throws vs. fear.
+-
+  prop1: Histrionic
+  prop2: of Histrionics
+  effect: >
+    the bearer gains +1 to Charisma (Performance) checks.
+-
+  prop1: Holy
+  prop2: of Faith
+  effect: >
+    When the bearer of this item rolls hit dice, they can choose to re-roll them and take the second result.
+-
+  prop1: Iconic
+  prop2: of Symbols
+  effect: >
+    The item is inscribed with holy symbols of the God of the DM's choice. A cleric or paladin that serves that god may use this item as a divine focus.
+-
+  prop1: Inquisitor's
+  prop2: of the Inquisitor
+  effect: >
+    The bearer gains a +1 bonus to Intelligence (Investigation) checks.
+-
+  prop1: Inspired
+  prop2: of Inspiration
+  effect: >
+    The bearer regains their Constitution modifier in temporary hit points whenever they gain or use inspiration.
+-
+  prop1: Leaping
+  prop2: of Leaping
+  effect: >
+    Contains 1d4 unreplenishable charges of the <i>Jump</i> spell (1st level).
+-
+  prop1: Liar's
+  prop2: of Lies
+  effect: >
+    Contains 1d4 unreplenishable charges of the <i>Silent Image</i> spell (1st level).
+-
+  prop1: Limbo
+  prop2: of Limbo
+  effect: >
+    When on the plane of Limbo, the bearer has advantage to Intelligence checks to alter or move non-magical objects within the plane. (DMG p. 61-62)
+-
+  prop1: Locating
+  prop2: of Locating
+  effect: >
+    Once attuned, the bearer always knows the exact location of this item
+-
+  prop1: Loquacious
+  prop2: of the Silver Tongue
+  effect: >
+    The bearer gains +1 to Charisma (Persuasion) checks.
+-
+  prop1: Malediction
+  prop2: of Malediction
+  effect: >
+    Contains 1d4 unreplenishable charges of the <i>Bane</i> spell (1st level).
+-
+  prop1: Manipulating
+  prop2: of Manipulation
+  effect: >
+    The bearer may cast the <i>Mage Hand</i> spell (0th level) once per day.
+-
+  prop1: Master's
+  prop2: of Servants
+  effect: >
+    Contains 1d4 unreplenishable charges of the <i>Unseen Servant</i> spell (1st level).
+-
+  prop1: Maverick
+  prop2: of the Maverick
+  effect: >
+    The bearer has a +1 bonus to any skill check involving gambling and games of chance (Insight, Sleight of Hand, Investigation, etc).
+-
+  prop1: Messenger
+  prop2: of Messages
+  effect: >
+    The bearer may cast the <i>Message</i> spell (0th level) once per day.
+-
+  prop1: Meteoric
+  prop2: of Falling Stars
+  effect: >
+    Contains 1 unreplenishable charge of the <i>Scorching Ray</i> spell (2nd level).
+-
+  prop1: Mindful
+  prop2: of Mindfulness
+  effect: >
+    The bearer gains a +1 bonus to Wisdom saving throws.
+-
+  prop1: Miraculous
+  prop2: of Miracles
+  effect: >
+    The bearer may cast the <i>Thaumaturgy</i> spell (0th level) once per day.
+-
+  prop1: Mocking
+  prop2: of Mockery
+  effect: >
+    The bearer may cast the <i>Vicious Mockery</i> spell (0th level) once per day.
+-
+  prop1: Natural
+  prop2: of Nature
+  effect: >
+    Contains 1d4 unreplenishable charges of the <i>Locate Animals or Plants</i> spell (2nd level).
+-
+  prop1: Neutralizing
+  prop2: of Neutrality
+  effect: >
+    Contains 1d4 unreplenishable charges of the <i>Protection from Good and Evil</i> spell (1st level).
+-
+  prop1: Nimble
+  prop2: of Agility
+  effect: >
+    The bearer gains a +1 bonus to Dexterity saving throws.
+-
+  prop1: Nourishing
+  prop2: of Nourishment
+  effect: >
+    The bearer rarely feels hungry, and only needs to consume one-fifth the usual amount of food.
+-
+  prop1: Pandemonium
+  prop2: of Pandemonium
+  effect: >
+    When on the plane of Pandemonium, the bearer has advantage on saving throws against the Mad Winds. (DMG p. 62)
+-
+  prop1: Preacher's
+  prop2: of the Preacher
+  effect: >
+    The bearer may extend the range of their Channel Divinity by 5 feet.
+-
+  prop1: Projecting
+  prop2: of Projection
+  effect: >
+    The bearer can send messages mentally to willing characters within 30 feet. This communication is one-way only.
+-
+  prop1: Protective
+  prop2: of Protection
+  effect: >
+    The bearer may cast the <i>Blade Ward</i> spell (0th level) once per day.
+-
+  prop1: Reaper's
+  prop2: of the Reaper
+  effect: >
+    The bearer has advantage on death saving throws.
+-
+  prop1: Renaissance
+  prop2: of the Renaissance
+  effect: >
+    Once per day, the bearer may gain +1 to any skill check.
+-
+  prop1: Revealing
+  prop2: of Revelation
+  effect: >
+    Contains 1d4 unreplenishable charges of the <i>Detect Magic</i> spell (1st level).
+-
+  prop1: Riutal
+  prop2: of Rituals
+  effect: >
+    Whenever the bearer casts a spell as a ritual, they have advantage to maintain concentration during the ritual.
+-
+  prop1: Sacred
+  prop2: of the Sacred
+  effect: >
+    The bearer may increase their Lay on Hands hit point pool by 5.
+-
+  prop1: Sagacious
+  prop2: of Acumen
+  effect: >
+    The bearer gains +1 to Wisdom (Insight) checks.
+-
+  prop1: Sage's
+  prop2: of the Sage
+  effect: >
+    The bearer gains a +1 bonus to Intelligence (History) checks.
+-
+  prop1: Secret
+  prop2: of Secrets
+  effect: >
+    Contains 1d4 unreplenishable charges of the <i>Illusory Script</i> spell (1st level).
+-
+  prop1: Sentinel
+  prop2: of the Sentinel
+  effect: >
+    Faintly glows when creatures of a certain race (DMs choice) are within a 100 foot radius.
+-
+  prop1: Shading
+  prop2: of Shade
+  effect: >
+    The bearer suffers no harm in temperatures as high as 120 degrees Fahrenheit.
+-
+  prop1: Shadowbound
+  prop2: of the Shadowfell
+  effect: >
+    The bearer knows the general direction to the closest Shadow Crossing within a 60 mile radius. They have advantage on saving throws vs. Shadowfell Dispair (DMG p. 51-52)
+-
+  prop1: Shepherd's
+  prop2: of the Shepherd
+  effect: >
+    The bearer gains a +1 bonus to (Wisdom) Animal Handling checks.
+-
+  prop1: Shielding
+  prop2: of Shielding
+  effect: >
+    This item contains 1d4 unreplenishable charges of the <i>Shield</i> spell (1st level).
+-
+  prop1: Shifting
+  prop2: of Shifting
+  effect: >
+    The bearer may change minor aspects of the physical appearance of this item.
+-
+  prop1: Silent
+  prop2: of the Night
+  effect: >
+    The bearer gains a +1 bonus to Dexterity (Stealth) checks.
+-
+  prop1: Smith's
+  prop2: of Reparations
+  effect: >
+    The bearer may cast the <i>Mending</i> spell (0th level) once per day.
+-
+  prop1: Sojourner's
+  prop2: of the Sojouner
+  effect: >
+    A poem, story, or map that describes a long-forgotten treasure is etched on the surface of the item.
+-
+  prop1: Solemn
+  prop2: of Solemnity
+  effect: >
+    The bearer may spend an action removing all the failed death saving throws from a target within 5 feet of them. The target is still not stabilized.
+-
+  prop1: Sparkling
+  prop2: of Lights
+  effect: >
+    The bearer may cast the <i>Dancing Lights</i> spell (0th level) once per day.
+-
+  prop1: Striding
+  prop2: of Strides
+  effect: >
+    Contains 1d4 unreplenishable charges of the <i>Longstrider</i> spell (1st level).
+-
+  prop1: Surgeon's
+  prop2: of the Surgeon
+  effect: >
+    The bearer gains a +1 bonus to Wisdom (Medicine) checks.
+-
+  prop1: Tenacious
+  prop2: of the Tenacious
+  effect: >
+    When the bearer takes a long rest, they gain back one additional hit die.
+-
+  prop1: Tracker's
+  prop2: of the Tracker
+  effect: >
+    The bearer gains a +1 to Wisdom (Survival) checks.
+-
+  prop1: Translucent
+  prop2: of Translucence
+  effect: >
+    The bearer gains an extra level one spell slot, which recovers only after a full moon rises.
+-
+  prop1: Trickster's
+  prop2: of Trickery
+  effect: >
+    The bearer may cast the <i>Minor Illusion</i> spell (0th level) once per day.
+-
+  prop1: True
+  prop2: of Truth
+  effect: >
+    The bearer may cast the <i>True Strike</i> spell (0th level) once per day.
+-
+  prop1: Unbroken
+  prop2: of Heart
+  effect: >
+    The bearer gains a +1 bonus to Constitution saving throws.
+-
+  prop1: Verdant
+  prop2: of Druidcraft
+  effect: >
+    The bearer may cast the <i>Druidcraft</i> spell (0th level) once per day.
+-
+  prop1: Victorious
+  prop2: of Victory
+  effect: >
+    Whenever the bearer kills a creature they gain temporary hit points equal to the creature's CR.
+-
+  prop1: Vigilant
+  prop2: of Vigilance
+  effect: >
+    The bearer gains +2 to their Passive Perception.
+-
+  prop1: Vigorous
+  prop2: of Vigor
+  effect: >
+    The bearer gains a +1 bonus to Strength saving throws.
+-
+  prop1: Vital
+  prop2: of Vitality
+  effect: >
+    The bearer's maximum hit points increases by their constitution modifier while attuned to this item. These hit points are lost when the bearer unattunes the item.
+-
+  prop1: War Leader's
+  prop2: of the War Leader
+  effect: >
+    The bearer can use an action to amplify their voice so that it clearly carries for up to 300 feet.
+-
+  prop1: Waterborne
+  prop2: of the Sea
+  effect: >
+    The item floats on water or other liquids. Its bearer has advantage on Strength (Athletics) checks to swim.
+-
+  prop1: Windborne
+  prop2: of the Labyrinth Wind
+  effect: >
+    When in the Plane of Air, the bearer can navigate the Labyrinth Wind intuitively, and knows the path to the nearest Earth Mote within 60 miles.
+-
+  prop1: Wizard's
+  prop2: of the Wizard
+  effect: >
+    The bearer gains a +1 to Intelligence (Arcana) checks.
+-
+  prop1: Wrathful
+  prop2: of Ysgard
+  effect: >
+    When on the plane of Ysgard, the bearer is unaffected by Immortal Wrath. (DMG p. 61)
