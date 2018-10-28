@@ -1,5 +1,9 @@
 import random
 import re
+import fileinput
+import os
+import glob
+from shutil import copyfile
 
 import yaml
 
@@ -8,6 +12,48 @@ from card import *
 options = []
 properties = []
 
+
+def generate_yaml():
+    if os.path.exists("yaml/items.yaml"):
+        return
+
+    for directory, subdirectories, files in os.walk("yaml"):
+
+        # skip yaml base directory
+        if directory is "yaml":
+            continue
+
+        file_list = glob.glob(os.path.join(directory, "*.yaml"))
+
+        # if no files exist, continue
+        if file_list is []:
+            continue
+
+        file_name = "{}.yaml".format(directory)
+        with open(file_name, 'w') as file:
+            input_lines = fileinput.input(file_list)
+            current_file_name = input_lines._files[0]
+            current_file_line = "{}:\n".format(current_file_name.split('/')[-1].split(".")[0])
+            modified_lines = [current_file_line]
+            for line in input_lines:
+                if input_lines.filename() is not current_file_name:
+                    current_file_name = input_lines.filename()
+                    current_file_line = "{}:\n".format(current_file_name.split('/')[-1].split(".")[0])
+                    modified_lines.append(current_file_line)
+                modified_line = re.sub("^", "  ", line)
+                modified_lines.append(modified_line)
+            file.writelines(modified_lines)
+
+        # check if it is the properties directory to create the nodc file
+        if directory.endswith("properties"):
+            nodc_file_name = "yaml/properties_nodc.yaml"
+            copyfile("yaml/properties.yaml", nodc_file_name)
+
+            for line in fileinput.input(nodc_file_name, inplace=True):
+                modified_line = re.sub("[Dd][Cc] ?[0-9]+ ?", "", line)
+
+                # fix the case for a {} Intelligence check, where removing DC makes the sentence wrong
+                print(re.sub("a ([aAeEiIoOuU])", "an \g<1>", modified_line), end='')
 
 def generate_items(type_name, property1, property2, quantity):
 
@@ -40,11 +86,13 @@ def generate_items(type_name, property1, property2, quantity):
     else:
         quantity = [quantity] * max_length
 
+    generate_yaml()
+
     global options
     global properties
     # read in the options for generation
-    options = yaml.load(open("items.yaml"))
-    properties = yaml.load(open("properties.yaml"))
+    options = yaml.load(open("yaml/items.yaml"))
+    properties = yaml.load(open("yaml/properties.yaml"))
 
     items = []
 
@@ -104,17 +152,20 @@ def generate_item(item_class, property1, property2):
         effect += "{}{}".format("\n" if effect != "" else "", prop["effect"].strip())
 
     return {
-            "name": name,
-            "type": typ,
-            "rarity": "Uncommon",
-            "attunement": "TRUE",
-            "slot": slot,
-            "value": "",
-            "cursed": "",
-            "effect": effect
-        }
+        "name": name,
+        "type": typ,
+        "rarity": "Uncommon",
+        "attunement": "TRUE",
+        "slot": slot,
+        "value": "",
+        "cursed": "",
+        "effect": effect
+    }
 
 
 items = generate_items(["wonderous item", "armor"], ["weak", None], [None, "weak"], 1)
 
 write_to_file(make_cards(items))
+
+# TODO add flags framework
+# TODO add flags to use properties with or without dc
